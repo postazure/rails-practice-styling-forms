@@ -1,37 +1,60 @@
-<%= form_for(@person) do |f| %>
+<%= form_for(@person, html:{class:"form-horizontal"}) do |f| %>
   <% if @person.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+  <div class="row">
+    <div class= "col-sm-9 col-sm-offset-2" id="error_explanation">
 
-      <ul>
-      <% @person.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      <div class="alert alert-danger " role="alert">
+        <h4><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+        <ul>
+          <% @person.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
+  </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+
+  <div class="form-group col-sm-offset-2">
+    <%= f.label :first_name, class:"control-label col-sm-2 " %>
+    <div class="col-sm-6">
+      <%= f.text_field :first_name, class:"form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+
+  <div class="form-group col-sm-offset-2">
+    <%= f.label :last_name, class:"control-label col-sm-2" %>
+    <div class="col-sm-6">
+      <%= f.text_field :last_name, class:"form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :date_of_birth %><br>
-    <%= f.date_select :date_of_birth %>
+
+  <div class="form-group col-sm-offset-2">
+    <%= f.label :date_of_birth, class:"control-label col-sm-2" %>
+    <div class="col-sm-3">
+      <%= f.date_field :date_of_birth, class:"form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :bio %><br>
-    <%= f.text_area :bio %>
+
+  <div class="form-group col-sm-offset-2">
+    <%= f.label :bio, class:"control-label col-sm-2" %>
+    <div class="col-sm-6">
+      <%= f.text_area :bio, class:"form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :active %><br>
-    <%= f.check_box :active %>
+  <div class="form-group">
+    <div class=" col-sm-2 col-sm-offset-2">
+      <%= f.check_box :active %> Active
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-2">
+      <%= f.submit class:"btn btn-info col-sm-3 pad" %>
+      <%= button_to 'cancel', people_path, class:"btn btn-default col-sm-2" %>
+    </div>
   </div>
+
 <% end %>
