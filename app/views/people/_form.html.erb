@@ -17,43 +17,44 @@
   <% end %>
 
 
-  <div class="form-group col-sm-offset-2">
+  <div class="form-group">
     <%= f.label :first_name, class:"control-label col-sm-2 " %>
     <div class="col-sm-6">
       <%= f.text_field :first_name, class:"form-control" %>
     </div>
   </div>
 
-  <div class="form-group col-sm-offset-2">
+  <div class="form-group">
     <%= f.label :last_name, class:"control-label col-sm-2" %>
     <div class="col-sm-6">
       <%= f.text_field :last_name, class:"form-control" %>
     </div>
   </div>
 
-  <div class="form-group col-sm-offset-2">
+  <div class="form-group">
     <%= f.label :date_of_birth, class:"control-label col-sm-2" %>
     <div class="col-sm-3">
       <%= f.date_field :date_of_birth, class:"form-control" %>
     </div>
   </div>
 
-  <div class="form-group col-sm-offset-2">
+  <div class="form-group">
     <%= f.label :bio, class:"control-label col-sm-2" %>
     <div class="col-sm-6">
       <%= f.text_area :bio, class:"form-control" %>
     </div>
   </div>
+
   <div class="form-group">
     <div class=" col-sm-2 col-sm-offset-2">
       <%= f.check_box :active %> Active
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-2">
-      <%= f.submit class:"btn btn-info col-sm-3 pad" %>
-      <%= button_to 'cancel', people_path, class:"btn btn-default col-sm-2" %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+      <%= f.submit class: "btn btn-info" %>
+      <%= link_to 'cancel', people_path, class: "btn btn-default" %>
     </div>
   </div>
 
